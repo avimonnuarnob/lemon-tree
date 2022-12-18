@@ -1,0 +1,58 @@
+.card {
+  --background-color: rgba(255, 255, 255, 0.05);
+  --border-color: linear-gradient(to bottom right, red, blue);
+  --border-width: 0.5em;
+  --edge-size: 1.5em;
+
+  border-radius: 0.25em;
+  width: 100%;
+  cursor: pointer;
+  background: var(--background-color);
+  padding: 0.5em;
+  border: 0;
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  clip-path: polygon(
+    0 0%,
+    100% 0,
+    100% calc(100% - var(--edge-size)),
+    calc(100% - var(--edge-size)) 100%,
+    0 100%,
+    0% var(--edge-size)
+  );
+  backdrop-filter: blur(2px);
+}
+
+.imgContainer {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* .card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--border-color);
+  z-index: -2;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--background-color);
+  z-index: -1;
+  clip-path: polygon(
+    var(--border-width) calc(var(--edge-size) + var(--border-width) * 0.5),
+    calc(var(--edge-size) + var(--border-width) * 0.5) var(--border-width),
+    calc(100% - var(--border-width)) var(--border-width),
+    calc(100% - var(--border-width))
+      calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5)),
+    calc(100% - calc(var(--edge-size) + var(--border-width) * 0.5))
+      calc(100% - var(--border-width)),
+    calc(var(--border-width)) calc(100% - var(--border-width))
+  );
+} */

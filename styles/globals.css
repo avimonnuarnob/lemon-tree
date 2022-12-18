@@ -1,9 +1,55 @@
+:root {
+  --clr-white-400: #ffffff;
+  --clr-dark-400: #191d29;
+  --clr-green-400: #9dfe00;
+  --clr-blue-400: #14d9e5;
+
+  --ff-primary: -apple-system, TTTravels, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  --ff-body: var(--ff-primary);
+  --ff-heading: var(--ff-primary);
+
+  --fw-regular: 400;
+  --fw-semi-bold: 500;
+  --fw-bold: 700;
+
+  --fs-400: 0.75rem; /* 12 */
+  --fs-500: 0.875rem; /* 14 */
+  --fs-600: 1rem; /* 16 */
+  --fs-700: 1.25rem; /* 20 */
+  --fs-800: 1.5rem; /* 24 */
+  --fs-900: 2.5rem; /* 40 */
+  --fs-10000: 8rem; /* 128 */
+
+  --fs-body: var(--fs-500);
+  --fs-primary-heading: var(--fs-900);
+  --fs-secondary-heading: var(--fs-600);
+  --fs-button: var(--fs-700);
+}
+
+@media (min-width: 50em) {
+  :root {
+    --fs-body: var(--fs-600);
+    --fs-primary-heading: var(--fs-10000);
+    --fs-secondary-heading: var(--fs-800);
+  }
+}
+
 html,
-body {
+body,
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: var(--ff-primary);
+}
+
+body {
+  background-color: var(--clr-dark-400);
+  color: var(--clr-white-400);
+  font-size: var(--fs-body);
 }
 
 a {
@@ -15,12 +61,177 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.container {
+  --max-width: 1300px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
+  margin-block: 2rem;
+}
+
+.fs-primary-heading {
+  font-size: var(--fs-primary-heading);
+  font-weight: 800;
+  font-style: italic;
+  line-height: 1.1;
+}
+.fs-secondary-heading {
+  font-size: var(--fs-secondary-heading);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.fs-caption {
+  font-size: var(--fs-400);
+  line-height: 1.1;
+  font-weight: 400;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #9dfe00 0%, #14d9e5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-style: normal;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  border: 0;
+  border-radius: 100vmax;
+  padding: 0.75em 1.5em;
+  /* font-weight: var(--fw-bold); */
+  font-size: var(--fs-button);
+  line-height: 1;
+  color: var(--clr-neutral-100);
+  background: linear-gradient(99.46deg, #9dfe00 -10.9%, #14d9e6 97.14%);
+}
+
+.button[data-type='inverted'] {
+  border: 1px solid #9dfe00;
+  background: transparent;
+  border-radius: 0.5em;
+  padding: 0.5em 0.75em;
+}
+
+.slick-slide {
+  padding: 0 8px;
+  box-sizing: border-box;
+  height: inherit !important;
+}
+
+.slick-slide div {
+  height: 100%;
+}
+
+.slick-track {
+  display: flex !important;
+}
+
+/* Flexbox*/
+.d--f {
+  display: flex;
+}
+.d--if {
+  display: inline-flex;
+}
+/* Flex direction */
+.fd--r {
+  flex-direction: row;
+} /* Default */
+.fd--rr {
+  flex-direction: row-reverse;
+}
+.fd--c {
+  flex-direction: column;
+}
+.fd--cr {
+  flex-direction: column-reverse;
+}
+/* Flex wrap */
+.fw--n {
+  flex-wrap: nowrap;
+} /* Default */
+.fw--w {
+  flex-wrap: wrap;
+}
+.fw--wr {
+  flex-wrap: wrap-reverse;
+}
+/* Justify content */
+.jc--fe {
+  justify-content: flex-end;
+}
+.jc--fs {
+  justify-content: flex-start;
+} /* Default */
+.jc--c {
+  justify-content: center;
+}
+.jc--sa {
+  justify-content: space-around;
+}
+.jc--sb {
+  justify-content: space-between;
+}
+/* Align items */
+.ai--fs {
+  align-items: flex-start;
+}
+.ai--c {
+  align-items: center;
+}
+.ai--fe {
+  align-items: flex-end;
+}
+.ai--s {
+  align-items: stretch;
+} /* Default */
+.ai--b {
+  align-items: baseline;
+}
+/* Flex grow */
+.fg--0 {
+  flex-grow: 0;
+} /* Default */
+.fg--1 {
+  flex-grow: 1;
+}
+/* Flex shrink */
+.fs--0 {
+  flex-shrink: 0;
+}
+.fs--1 {
+  flex-shrink: 1;
+} /* Default */
+/* Flex basis */
+.fb--a {
+  flex-basis: auto;
+} /* Default */
+.fb--0 {
+  flex-basis: 0;
+}
+/* Align self */
+.as--a {
+  align-self: auto;
+} /* Default */
+.as--fs {
+  align-self: flex-start;
+}
+.as--c {
+  align-self: center;
+}
+.as--fe {
+  align-self: flex-end;
+}
+.as--s {
+  align-self: stretch;
+}
+.as--b {
+  align-self: baseline;
 }

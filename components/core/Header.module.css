@@ -1,0 +1,13 @@
+.header {
+  padding-block: 4rem;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 780px) {
+  .header {
+    /* padding-block: 2rem; */
+  }
+}
